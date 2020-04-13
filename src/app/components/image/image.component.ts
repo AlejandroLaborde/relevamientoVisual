@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnDestroy, Input } from '@angular/core';
 import { NavParams, ModalController } from '@ionic/angular';
 import { ImagesService } from 'src/app/services/images.service';
 import { Voto } from 'src/app/models/voto';
@@ -9,7 +9,7 @@ import { Imagen } from 'src/app/models/imagen';
   templateUrl: './image.component.html',
   styleUrls: ['./image.component.scss'],
 })
-export class ImageComponent implements OnInit {
+export class ImageComponent implements OnDestroy {
   @Input() images: Imagen[];
   @Input() startIndex: Number;
   @Input() uid: string;
@@ -30,6 +30,10 @@ export class ImageComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  ngOnDestroy() {
+    console.log('Items destroyed');
+  }
 
   votar(index: number) {
     console.log('votó ' + index);

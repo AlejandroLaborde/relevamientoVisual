@@ -1,8 +1,8 @@
 
 
 
-<ion-slides class="slider" pager [options]="slideOpts" zoom>
-  <ion-slide class="slider-slides" *ngFor="let image of images; let i = index" [attr.data-index]="i">
+<ion-slides class="slider">
+  <ion-slide class="slider-slides" *ngFor="let image of images; let i = index" >
     <ion-img [src]="image.image"></ion-img>
     <ion-fab *ngIf="image.uid != this.uid" vertical="bottom" horizontal="end">
       <div class="mail-box">Usuario: {{image.umail}} - Votos: {{this.cantidadDeVotos(i)}}</div>

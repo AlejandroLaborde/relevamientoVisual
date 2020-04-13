@@ -78,7 +78,8 @@ export class ImagesService {
     .pipe(
       map(images => {
         return images.sort((a, b) => {
-          return new Date(a.fecha).getTime() - new Date(b.fecha).getTime();
+     
+          return new Date(a.fecha.substr(0,19).trim()).getTime() - new Date(b.fecha.substr(0,19).trim()).getTime();
         });
       })
     );
