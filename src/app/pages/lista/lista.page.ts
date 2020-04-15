@@ -114,7 +114,7 @@ export class ListaPage implements OnInit {
     image.umail = this.authService.getCurrentUserMail();
     image.image = 'data:image/jpg;base64,' + imageData;
     image.votos = new Array();
-    image.fecha = new Date().toString();
+    image.fecha = new Date().toLocaleString();
     this.imagesService
       .saveImage(image)
       .then(async () => {
