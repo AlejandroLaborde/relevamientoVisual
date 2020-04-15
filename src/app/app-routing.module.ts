@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)},
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
+  { path: 'home', loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)},
   {
     path: 'lista/cosasLindas',
     loadChildren: () => import('./pages/lista/lista.module').then( m => m.ListaPageModule)
@@ -16,6 +15,7 @@ const routes: Routes = [
     path: 'lista/cosasFeas',
     loadChildren: () => import('./pages/lista/lista.module').then( m => m.ListaPageModule)
   },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   
 ];
 

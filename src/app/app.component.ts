@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -10,23 +10,25 @@ import { ComponentsService } from './services/components.service';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent {
+export class AppComponent{
   loading = true;
   constructor(
     private platform: Platform,
-    private splashScreen: SplashScreen,
+    public splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private componentsService: ComponentsService
   ) {
     this.initializeApp();
   }
 
+
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.loading = false;
       this.splashScreen.hide();
       this.componentsService.playSong('inicioApp');
+      this.loading=false;
     });
+    
   }
 }
